@@ -27,7 +27,21 @@ const handleSearch=()=>{
 const displayResult =(data)=>{
     const parent = document.getElementById('diction-container')
    data[0].phonetics.forEach(element => {
-     
+      const audio = document.createElement('audio')
+      audio.src = element.audio
+
+      const button = document.createElement('button');
+      button.innerText='play'
+      button.onclick =()=>{
+        audio.play();
+      };
+
+      const container = document.createElement("div")
+      container.appendChild(button)
+      container.appendChild(audio)
+      
+       
+      parent.appendChild(container)
    });
 
 }
